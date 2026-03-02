@@ -1,4 +1,4 @@
-package com.senai.Api;
+package com.senai.calculadora;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

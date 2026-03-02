@@ -1,4 +1,4 @@
-package com.senai.Api;
+package com.senai.calculadora;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

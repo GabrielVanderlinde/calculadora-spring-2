@@ -1,4 +1,4 @@
-package com.senai.Api.service;
+package com.senai.calculadora.service;
 
 import org.springframework.stereotype.Service;
 
