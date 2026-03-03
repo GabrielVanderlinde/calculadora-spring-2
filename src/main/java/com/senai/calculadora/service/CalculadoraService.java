@@ -1,7 +1,6 @@
 package com.senai.calculadora.service;
 
-import com.senai.calculadora.dto.EntradaDto;
-import com.senai.calculadora.dto.ResultadoDto;
+import com.senai.calculadora.dto.*;
 import org.springframework.stereotype.Service;
 
 @Service
