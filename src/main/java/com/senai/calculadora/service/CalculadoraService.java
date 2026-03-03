@@ -6,19 +6,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculadoraService {
 
-    public ResultadoDto adicao(EntradaDto dados) {
-        return new ResultadoDto();
-    }
+    public ResultadoDto adicionar(EntradaDto dados) {
+        //--Inicializa Variaveis
+        ResultadoDto resultadoDto = new ResultadoDto();
 
-    public ResultadoDto subtracao(EntradaDto dados) {
-        return new ResultadoDto();
-    }
-
-    public ResultadoDto multiplicacao(EntradaDto dados) {
-        return new ResultadoDto();
-    }
-
-    public ResultadoDto divisao(EntradaDto dados) {
-        return new ResultadoDto();
+        //--Processo
+        resultadoDto.setNumero1(resultadoDto.getNumero1());
+        resultadoDto.setNumero2(resultadoDto.getNumero2());
+        resultadoDto.setResultado();
+        //--Saída
+        return resultadoDto;
     }
 }
