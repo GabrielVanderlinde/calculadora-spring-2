@@ -32,9 +32,6 @@ public class CalculadoraService {
     }
 
     public ResultadoDto dividir(EntradaDto dados) {
-        if (dados.getNumero2() == 0) {
-            throw new ArithmeticException("Não é possível dividir por zero.");
-        }
 
         ResultadoDto resultadoDto = new ResultadoDto();
         resultadoDto.setNumero1(dados.getNumero1());

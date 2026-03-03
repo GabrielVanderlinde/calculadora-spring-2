@@ -1,7 +1,10 @@
 package com.senai.calculadora.dto;
 
+import jakarta.validation.constraints.Min;
+
 public class EntradaDto {
     private Double numero1;
+    @Min(value = 1, message = "Impossível Divisão por Zero!")
     private Double numero2;
 
     //Contructor

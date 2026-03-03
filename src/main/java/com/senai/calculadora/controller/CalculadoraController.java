@@ -2,6 +2,7 @@ package com.senai.calculadora.controller;
 
 import com.senai.calculadora.dto.*;
 import com.senai.calculadora.service.CalculadoraService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,7 +46,7 @@ public class CalculadoraController {
     }
 
     @PostMapping("/dividir")
-    public ResponseEntity<ResultadoDto> dividir(@RequestBody EntradaDto dados) {
+    public ResponseEntity<ResultadoDto> dividir(@RequestBody @Valid EntradaDto dados) {
         //--Executando metodo de dividir da classe service
         ResultadoDto resultado = service.dividir(dados);
         //--Retorna resposta para Cliente
