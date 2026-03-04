@@ -11,4 +11,8 @@ public class ResultadoDto {
     private Double numero2;
     private String operacao;
     private Double resultado;
+
+    public ResultadoDto() {
+
+    }
 }
