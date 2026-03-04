@@ -20,26 +20,22 @@ public class CalculadoraController {
         this.service = service;
     }
 
-    @PostMapping("/adicionar")
     public ResponseEntity<ResultadoDto> adicionar(@RequestBody EntradaDto dados) {
         ResultadoDto resultado = service.adicionar(dados);
         return ResponseEntity.ok().body(resultado);
     }
 
-    @PostMapping("/subtrair")
     public ResponseEntity<ResultadoDto> subtrair(@RequestBody EntradaDto dados) {
         ResultadoDto resultado = service.subtrair(dados);
         return ResponseEntity.ok().body(resultado);
     }
 
 
-    @PostMapping("/multiplicar")
     public ResponseEntity<ResultadoDto> multiplicar(@RequestBody EntradaDto dados) {
         ResultadoDto resultado = service.multiplicar(dados);
         return ResponseEntity.ok().body(resultado);
     }
 
-    @PostMapping("/dividir")
     public ResponseEntity<ResultadoDto> dividir(@RequestBody @Valid EntradaDto dados) {
         ResultadoDto resultado = service.dividir(dados);
         return ResponseEntity.ok().body(resultado);
