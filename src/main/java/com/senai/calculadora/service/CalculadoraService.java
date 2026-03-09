@@ -9,7 +9,7 @@ public class CalculadoraService {
     public ResultadoDto calcular(EntradaDto dados) {
         ResultadoDto resultadoDto = new ResultadoDto();
 
-        //Prenchemos os dados para sair depois
+        //Preenchimento de dados para sair depois
         resultadoDto.setNumero1(dados.getNumero1());
         resultadoDto.setNumero2(dados.getNumero2());
         resultadoDto.setOperacao(dados.getOperacao());
