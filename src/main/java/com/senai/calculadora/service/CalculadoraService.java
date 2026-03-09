@@ -6,59 +6,44 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculadoraService {
 
-    public ResultadoDto adicionar(EntradaDto dados) {
+    public ResultadoDto calcular(EntradaDto dados) {
         ResultadoDto resultadoDto = new ResultadoDto();
-        // Correção: Buscar dados do objeto 'dados'
+
+        //Prenchemos os dados para sair depois
         resultadoDto.setNumero1(dados.getNumero1());
         resultadoDto.setNumero2(dados.getNumero2());
-        resultadoDto.setResultado(dados.getNumero1() + dados.getNumero2());
-        return resultadoDto;
-    }
+        resultadoDto.setOperacao(dados.getOperacao());
 
-    public ResultadoDto subtrair(EntradaDto dados) {
-        ResultadoDto resultadoDto = new ResultadoDto();
-        resultadoDto.setNumero1(dados.getNumero1());
-        resultadoDto.setNumero2(dados.getNumero2());
-        resultadoDto.setResultado(dados.getNumero1() - dados.getNumero2());
-        return resultadoDto;
-    }
+        double resultado = 0.0;
 
-    public ResultadoDto multiplicar(EntradaDto dados) {
-        ResultadoDto resultadoDto = new ResultadoDto();
-        resultadoDto.setNumero1(dados.getNumero1());
-        resultadoDto.setNumero2(dados.getNumero2());
-        resultadoDto.setResultado(dados.getNumero1() * dados.getNumero2());
-        return resultadoDto;
-    }
-
-    public ResultadoDto dividir(EntradaDto dados) {
-
-        ResultadoDto resultadoDto = new ResultadoDto();
-        resultadoDto.setNumero1(dados.getNumero1());
-        resultadoDto.setNumero2(dados.getNumero2());
-        resultadoDto.setResultado(dados.getNumero1() / dados.getNumero2());
-        return resultadoDto;
-    }
-
-    public ResultadoDto modulo(EntradaDto dados) {
-
-        ResultadoDto resultadoDto = new ResultadoDto();
-        resultadoDto.setNumero1(dados.getNumero1());
-        resultadoDto.setNumero2(dados.getNumero2());
-        resultadoDto.setResultado(dados.getNumero1() % dados.getNumero2());
-        return resultadoDto;
-    }
-
-    public ResultadoDto potenciacao(EntradaDto dados) {
-
-        ResultadoDto resultadoDto = new ResultadoDto();
-        resultadoDto.setNumero1(dados.getNumero1());
-        resultadoDto.setNumero2(dados.getNumero2());
-
-        double potencia = Math.pow(dados.getNumero1(), dados.getNumero2());
-
-        resultadoDto.setResultado(potencia);
-
+        // 2. Lógica Switch para decidir o cálculo baseado na String da operação
+        switch (dados.getOperacao()) {
+            case "+":
+                resultado = dados.getNumero1() + dados.getNumero2();
+                break;
+            case "-":
+                resultado = dados.getNumero1() - dados.getNumero2();
+                break;
+            case "*":
+                resultado = dados.getNumero1() * dados.getNumero2();
+                break;
+            case "/":
+                if (dados.getNumero2() == 0) {
+                    throw new IllegalArgumentException("Impossível Divisão por Zero!");
+                }
+                resultado = dados.getNumero1() / dados.getNumero2();
+                break;
+            case "%":
+                resultado = dados.getNumero1() % dados.getNumero2();
+                break;
+            case "^":
+                resultado = Math.pow(dados.getNumero1(), dados.getNumero2());
+                break;
+            default:
+                throw new IllegalArgumentException("Operação inválida! Use +, -, *, /, % ou ^.");
+        }
+        // 3. Setamos o resultado final e retornamos
+        resultadoDto.setResultado(resultado);
         return resultadoDto;
     }
 }
