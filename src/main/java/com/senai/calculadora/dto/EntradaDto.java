@@ -8,7 +8,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class EntradaDto {
     private Double numero1;
-    @Min(value = 1, message = "Impossível Divisão por Zero!")
     private Double numero2;
 
     private String operacao;
